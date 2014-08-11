@@ -1,3 +1,5 @@
+require "coveralls"
+Coveralls.wear!
 require "ApmRepoGen/packages.rb"
 require "test/unit"
 require "json"
