@@ -29,7 +29,7 @@ module ApmRepoGen
 
 		# Writes packages to packages.json.
 		def write
-			file = open("packages.json", "w")
+			file = open(File.join(@path, "packages.json"), "w")
 			file.write(@packages.to_json)
 			file.close
 		end

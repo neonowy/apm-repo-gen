@@ -3,7 +3,7 @@ require "test/unit"
 require "json"
 
 class TestApmRepoGen < Test::Unit::TestCase
-	@@packages = ApmRepoGen::Packages.new(File.join(Dir.pwd, "test_files"))
+	@@packages = ApmRepoGen::Packages.new(File.join(Dir.pwd, "test", "tmp"))
 
 	def test_packages
 		assert_equal(["a", "abc"], @@packages.packages)
@@ -18,7 +18,7 @@ class TestApmRepoGen < Test::Unit::TestCase
 	def test_packages_writing
 		#packages = Packages.new
 		@@packages.write
-		file = open("packages.json")
+		file = open(File.join(Dir.pwd, "test", "tmp", "packages.json"))
 		assert_equal(["a", "abc"].to_json, file.read)
 	end
 end

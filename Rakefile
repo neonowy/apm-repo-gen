@@ -3,14 +3,18 @@ require "rake/testtask"
 task :test => :create_files
 
 task :create_files do
-	mkdir "test_files"
-	touch File.join("test_files", "abc.json")
-	touch File.join("test_files", "packages.json")
-	touch File.join("test_files", "a.json")
+	mkdir File.join("test", "tmp")
+	touch File.join("test", "tmp", "abc.json")
+	touch File.join("test", "tmp", "packages.json")
+	touch File.join("test", "tmp", "a.json")
 end
 
 task :clean do
-	rm_rf "test_files"
+	rm_rf File.join(Dir.pwd, "test", "tmp")
+end
+
+task :add_path do
+	system 'setx path "%path%;' + File.join(Dir.pwd, "bin") + '"'
 end
 
 Rake::TestTask.new do |t|
