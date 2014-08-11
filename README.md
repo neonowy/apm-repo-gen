@@ -24,7 +24,7 @@ Linux support soon!
 
 ##Usage
 ```
-ApmRepoGen [PATH]
+ApmRepoGen.rb [PATH]
 [PATH] - path to repository (default current directory)
 ```
 
